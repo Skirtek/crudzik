@@ -27,4 +27,18 @@ app.post("/backup", async (req, res) => {
   }
 });
 
+app.delete("/delete", async (req, res) => {
+  try {
+    const daneDoUsuniecia = req.body;
+
+    const result = baseApi.delete("https://httpbin.org/delete", {
+      daneDoUsuniecia,
+    });
+
+    res.status(200);
+  } catch (err) {
+    res.status(500);
+  }
+});
+
 app.listen(process.env.PORT || 8080);
