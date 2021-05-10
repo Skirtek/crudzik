@@ -29,13 +29,13 @@ app.post("/backup", async (req, res) => {
 
 app.delete("/delete", async (req, res) => {
   try {
-    const daneDoUsuniecia = req.body;
+    const data = req.body;
 
-    const result = baseApi.delete("https://httpbin.org/delete", {
-      daneDoUsuniecia,
+    await baseApi.delete("https://httpbin.org/delete", {
+      data,
     });
 
-    res.status(200);
+    res.status(200).send("Status OK");
   } catch (err) {
     res.status(500);
   }
